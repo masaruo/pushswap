@@ -6,44 +6,51 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/04/30 18:59:19 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:57:00 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-// void	sa(int *stk, int atop)
-// {
-// 	int	tmp;
+void	sa(int *stk, int a0)
+{
+	int	tmp;
 
-// 	tmp = stk[atop];
-// 	stk[atop] = stk[atop - 1];
-// 	stk[atop - 1] = tmp;
-// }
+	tmp = stk[a0];
+	stk[a0] = stk[a0 + 1];
+	stk[a0 + 1] = tmp;
+}
 
-// void	sb(int *stk, int atop)
-// {
-// 	int	tmp;
+void	sb(int *stk, int a0)
+{
+	int	tmp;
+	int	b0;
 
-// 	tmp = stk[atop + 1];
-// 	stk[atop + 1] = stk[atop + 2];
-// 	stk[attop + 1] = tmp;
-// }
+	b0 = a0 - 1;
+	tmp = stk[b0];
+	stk[b0 - 1] = stk[b0];
+	stk[b0] = tmp;
+}
 
-// void	ss(int *stk, int b0)
-// {
-// 	sa(stk, b0);
-// 	sb(stk, b0);
-// }
+void	ss(int *stk, int a0)
+{
+	int	b0;
+
+	b0 = a0 - 1;
+	sa(stk, a0);
+	sb(stk, b0);
+}
 
 // void	pa()
 
 // // 関数ポインター
-// void	ft_pushswap(int *stk, (*stk)func(*stk))
-// {
+void	ft_pushswap(int *stk, int *a0)
+{
 	
-// }
+}
+
+
 
 static int	ft_isspace_cnt(const char c)
 {
@@ -164,7 +171,7 @@ static int	*ft_get_arr(char **argv, size_t size)
 
 int	main(int argc, char **argv)
 {
-	size_t	n;
+	size_t	a0;
 	size_t	size;
 	int		*stk;
 
@@ -172,6 +179,8 @@ int	main(int argc, char **argv)
 	{
 		size = ft_get_size(argv);
 		stk = ft_get_arr(argv, size);
+		a0 = 0;
+		ft_pushswap(stk, &a0);
 		
 	}
 	return (0);

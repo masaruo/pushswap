@@ -6,61 +6,182 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/04/28 23:23:12 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:57:00 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	sa(int *stk, int atop)
+void	sa(int *stk, int a0)
 {
 	int	tmp;
 
-	tmp = stk[atop];
-	stk[atop] = stk[atop - 1];
-	stk[atop - 1] = tmp;
+	tmp = stk[a0];
+	stk[a0] = stk[a0 + 1];
+	stk[a0 + 1] = tmp;
 }
 
-void	sb(int *stk, int atop)
+void	sb(int *stk, int a0)
 {
 	int	tmp;
+	int	b0;
 
-	tmp = stk[atop + 1];
-	stk[atop + 1] = stk[atop + 2];
-	stk[attop + 1] = tmp;
+	b0 = a0 - 1;
+	tmp = stk[b0];
+	stk[b0 - 1] = stk[b0];
+	stk[b0] = tmp;
 }
 
-void	ss(int *stk, int b0)
+void	ss(int *stk, int a0)
 {
-	sa(stk, b0);
+	int	b0;
+
+	b0 = a0 - 1;
+	sa(stk, a0);
 	sb(stk, b0);
 }
 
-void	pa()
+// void	pa()
 
-// 関数ポインター
-void	ft_pushswap(int *stk, (*stk)func(*stk))
+// // 関数ポインター
+void	ft_pushswap(int *stk, int *a0)
 {
 	
 }
 
+
+
+static int	ft_isspace_cnt(const char c)
+{
+	if (c == ' ' || c == '\f' || c == '\n' || c == '\r'
+		|| c == '\t' || c == '\v')
+		return (1);
+	else
+		return (0);
+}
+
+static void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
+{
+	while (ft_isspace_cnt(s[*j]))
+		*j = *j + 1;
+	if (s[*j] == '-')
+		*is_minus = -1;
+	if (s[*j] == '-' || s[*j] == '+')
+		*j = *j + 1;
+	return ;
+}
+
+// The atoi() function converts the initial portion of 
+// the string pointed to by str to int representation.
+static int	ft_atoi_cnt(const char *str, int *j)
+{
+	int			is_minus;
+	long		num;
+	const char	*s;
+
+	is_minus = 0;
+	ft_prefix_cnt(str, &is_minus, j);
+	num = 0;
+	s = str;
+	while (ft_isdigit(s[*j]))
+	{
+		if (!is_minus && num > LONG_MAX / 10)
+			return ((int)LONG_MAX);
+		if (is_minus && num > LONG_MAX / 10)
+			return ((int)LONG_MIN);
+		num = num * 10;
+		if (!is_minus && num > LONG_MAX - (s[*j] - '0'))
+			return ((int)LONG_MAX);
+		if (is_minus && num - 1 > LONG_MAX - (s[*j] - '0'))
+			return ((int)LONG_MIN);
+		num = num + (s[*j] - '0');
+		*j = *j + 1;
+	}
+	if (is_minus)
+		return ((int)(num * -1));
+	else
+		return ((int)num);
+}
+
+static size_t	ft_get_size(char **argv)
+{
+	int		num;
+	char	*s;
+	int		i;
+	int		j;
+	int		n;
+
+	i = 1;
+	n = 0;
+	if (!**argv)// todo empty string error ""
+		return (NULL);
+	while (argv[i])
+	{
+		j = 0;
+		s = ft_strtrim(argv[i], " , \t");
+		while (1)
+		{
+			num = ft_atoi_cnt(s, &j);
+			n++;
+			printf("%d:arr func\n", num);
+			if (!s[j])
+				break ;
+			j++;
+		}
+		free(s);
+		i++;
+	}
+	return (n);
+}
+
+static int	*ft_get_arr(char **argv, size_t size)
+{
+	int		*stk;
+	char	*s;
+	int		i;
+	int		j;
+	int		n;
+
+	i = 1;
+	n = 0;
+	if (!**argv)// todo empty string error ""
+		return (NULL);
+	stk = malloc(sizeof(int) * (size + 1));
+	if (stk == NULL)
+		return (NULL);
+	while (argv[i])
+	{
+		j = 0;
+		s = ft_strtrim(argv[i], " , \t");
+		while (1)
+		{
+			stk[n] = ft_atoi_cnt(s, &j);
+			n++;
+			if (!s[j])
+				break ;
+			j++;
+		}
+		free(s);
+		i++;
+	}
+	stk[n] = NULL;
+	return (stk);
+}
+
 int	main(int argc, char **argv)
 {
-	size_t	n;
+	size_t	a0;
+	size_t	size;
 	int		*stk;
 
 	if (argv > 0)
 	{
-		stk = malloc(sizeof(int) * argc);
-		n = 0;
-		while(n + 1 < argc)
-		{
-			stk[n] = ft_atoi(argv[n + 1]);
-			n++;
-		}
-		stk[n] = NULL;
-		ft_pushswap(stk);
+		size = ft_get_size(argv);
+		stk = ft_get_arr(argv, size);
+		a0 = 0;
+		ft_pushswap(stk, &a0);
+		
 	}
 	return (0);
 }

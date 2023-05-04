@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/04/30 21:57:00 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/01 14:48:23 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sa(int *stk, int a0)
 {
 	int	tmp;
 
+	if (a0 < end)// todo 
 	tmp = stk[a0];
 	stk[a0] = stk[a0 + 1];
 	stk[a0 + 1] = tmp;
@@ -27,30 +28,82 @@ void	sb(int *stk, int a0)
 	int	tmp;
 	int	b0;
 
+	if (a0 < 2)
+		return ;
 	b0 = a0 - 1;
 	tmp = stk[b0];
-	stk[b0 - 1] = stk[b0];
-	stk[b0] = tmp;
+	stk[b0] = stk[b0 - 1];
+	stk[b0 - 1] = tmp;
 }
 
 void	ss(int *stk, int a0)
 {
-	int	b0;
-
-	b0 = a0 - 1;
 	sa(stk, a0);
-	sb(stk, b0);
+	sb(stk, a0);
 }
 
-// void	pa()
-
-// // 関数ポインター
-void	ft_pushswap(int *stk, int *a0)
+void	pa(int *stk, int *a0)
 {
-	
+	if (*a0 > 0)
+		*a0 = *a0 - 1;
 }
 
+void	pb(int *stk, int *a0, int end)
+{
+	if (*a0 != end)// end of arr
+		*a0 = *a0 + 1;
+}
 
+void	ra(int *stk, int a0, int end)
+{
+	int		tmp;
+	size_t	i;
+
+	i = 0;
+	while (a0 + i < end)
+	{
+		tmp = stk[a0 + i];
+		stk[a0 + i] = stk[a0 + i + 1];
+		stk[a0 + i] + tmp; 
+	}
+}
+
+void	rb(int *stk, int a0)
+{
+	int		tmp;
+	size_t	i;
+
+	i = 0;
+	while (i < a0)
+	{
+		tmp = stk[i];
+		stk[i] = stk[i + 1];
+		stk[i + 1] = tmp;
+	}
+}
+
+void	rr(int *stk, int a0, int end)
+{
+	ra(stk, a0, end);
+	rb(stk, a0);
+}
+
+void	rra(int *stk, int a0, int end)
+{
+	int		tmp;
+	size_t	i;
+	size_t	end_idx;
+
+	end_idx = 0;
+	i = 0;
+	end_idx = end - 1;
+	while (a0 < end - i)
+	{
+		tmp = stk[end_idx - i];
+		stk[end_idx - i] = stk[end_idx - i - 1];
+		stk[end_idx - i - 1] = tmp;
+	}
+}
 
 static int	ft_isspace_cnt(const char c)
 {
@@ -124,7 +177,6 @@ static size_t	ft_get_size(char **argv)
 		{
 			num = ft_atoi_cnt(s, &j);
 			n++;
-			printf("%d:arr func\n", num);
 			if (!s[j])
 				break ;
 			j++;
@@ -180,13 +232,18 @@ int	main(int argc, char **argv)
 		size = ft_get_size(argv);
 		stk = ft_get_arr(argv, size);
 		a0 = 0;
-		ft_pushswap(stk, &a0);
-		
+		pb(stk, &a0, size);
+		pb(stk, &a0, size);
+		// sb(stk, a0);
+		ss(stk, a0);
+		int	i = 0;
+		while (i < size)
+			printf("%d\n", stk[i++]);
 	}
 	return (0);
 }
 
-/* 
+/*
 • Global variables are forbidden.
 • You have to write a program named push_swap that takes as an argument the stack
 a formatted as a list of integers. The first argument should be at the top of the

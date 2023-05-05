@@ -6,7 +6,7 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/04/28 12:33:01 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/05 21:51:46 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,33 +20,23 @@ FILES		=	ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_strlen ft_mem
 				ft_strchr ft_strrchr ft_strncmp ft_memchr ft_memcmp ft_strnstr ft_atoi \
 				ft_calloc ft_strdup \
 				ft_substr ft_strjoin ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri \
-				ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd
-BONUS_FILES	=	ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
+				ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+				ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
 				ft_lstclear ft_lstiter ft_lstmap
-
 SRCS_DIR	=	./
 SRCS		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILES)))
-
+INC			=	../includes/
 OBJS		=	$(SRCS:.c=.o)
-OBJS_B		=	$(SRCS_B:.c=.o)
-
-ifdef WITH_BONUS
-OBJS += $(OBJS_B)
-endif
 
 ifdef WITH_DEBUG
-CFLAGS += -g3 -O0 -fsanitize=address
+CFLAGS = -Wall -g3 -O0 -fsanitize=address
 endif
 
 %.o : %.c 
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -I $(INC) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
-bonus:
-	make $(NAME) WITH_BONUS=1
 
 debug: fclean
 	make $(NAME) WITH_DEBUG=1
@@ -54,14 +44,14 @@ debug: fclean
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: bonus debug all clean fclean re
+.PHONY: debug all clean fclean re
 
 
 

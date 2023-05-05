@@ -6,28 +6,31 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/04/28 12:32:28 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/05 21:52:58 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	push_swap
+NAME		=	pushswap
 CC			=	cc
-# CFLAGS		=	-Wall -Wextra -Werror
-CFLAGS		=	-Wall
+CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
-FILES		=	push_swap
+# FILES		=	pipex pipex_utils
 # BONUS_FILES	=	pipex_bonus get_next_line get_next_line_utils \
-# 				pipex_bonus_utils
+				pipex_bonus_utils
 SRCS_DIR	=	./srcs/
-# BONUS_DIR	=	./bonus_files/
+BONUS_DIR	=	./srcs/
 SRCS		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B		=	$(addprefix $(BONUS_DIR), $(addsuffix .c, $(BONUS_FILES)))
+SRCS_B		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILES)))
 INC			=	./includes/
 OBJS		=	$(SRCS:.c=.o)
-# OBJS_B		=	$(SRCS_B:.c=.o)
+OBJS_B		=	$(SRCS_B:.c=.o)
+
+ifdef WITH_BONUS
+OBJS += $(OBJS_B)
+endif
 
 ifdef WITH_DEBUG
-CFLAGS += -g3 -O0 -fsanitize=address
+CFLAGS = -Wall -g3 -O0 -fsanitize=address
 endif
 
 %.o : %.c
@@ -37,16 +40,23 @@ $(NAME): $(OBJS)
 	make -C ./libft
 	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
 
+$(NAME)_bonus: $(OBJS_B)
+	make -C ./libft
+	$(CC) $(CFLAGS) $(OBJS_B) ./libft/libft.a -o $(NAME)
+# $(CC) $(CFLAGS) $(OBJS_B) ./libft/libft.a -o $(NAME)_bonus
+
+bonus: $(NAME)_bonus
+
 all: $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
-	$(RM) ./bonus_files/$(OBJS_B)
+#$(RM) ./bonus_files/$(OBJS_B)
 	make -C ./libft clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) $(NAME)_bonus
+#$(RM) $(NAME)_bonus
 	make -C ./libft fclean
 
 re: fclean all
@@ -54,7 +64,8 @@ re: fclean all
 # .PHONY: all clean fclean re
 
 # STORAGE
+debugbonus: fclean
+	make bonus WITH_DEBUG=1
 debug: fclean
-	make debug -C ./libft
 	make $(NAME) WITH_DEBUG=1
 .PHONY: debug all clean fclean re debugbonus

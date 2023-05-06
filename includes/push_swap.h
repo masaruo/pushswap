@@ -6,13 +6,19 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/04/28 11:19:54 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/06 18:37:30 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#ifndef	PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-
+void	ft_swap(int *a, int *b);
+void	sa(int *stk, int a0, int size);
+void	sb(int *stk, int a0, int size);
+void	pa(int *stk, int *a0, int size);
+void	pb(int *stk, int *a0, int size);
+void	ra(int *stk, int a0, int end);
+void	rb(int *stk, int a0, int end);
 
 #endif

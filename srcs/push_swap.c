@@ -6,11 +6,10 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/06 18:44:42 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/07 22:21:02 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
 static int	ft_isspace_cnt(const char c)
@@ -141,9 +140,17 @@ int	main(int argc, char **argv)
 		stk = ft_get_arr(argv, size);
 		a0 = 0;
 		// sa(stk, a0, size);
-		ra(stk, a0, size);
-		// pb(stk, &a0, size);
-		// pb(stk, &a0, size);
+		// ra(stk, a0, size);
+		pb(stk, &a0, size);
+		pb(stk, &a0, size);
+		pb(stk, &a0, size);
+		printf("a0 = %d\n", a0);
+		rb(stk, a0, size);
+		rb(stk, a0, size);
+		// sb(stk, a0, size);
+		// pa(stk, &a0, size);
+		// sa(stk, a0, size);
+		// sb(stk, a0, size);
 		// sb(stk, a0);
 		// ss(stk, a0);
 		int	i = 0;

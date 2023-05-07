@@ -6,60 +6,48 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:23:02 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/06 19:06:43 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/07 23:01:08 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// copies len bytes from string src to string dst and returns value of dest.
-void	*ft_intmove(int *dst, const int *src, size_t len)
-{
-	size_t	i;
-	int		*pdest;
-	int		*psrc;
-
-	if (len == 0)
-		return (dst);
-	pdest = dst;
-	psrc = src;
-	i = len;
-	if (pdest > psrc)
-	{
-		while (0 < i)
-		{
-			pdest[i - 1] = psrc[i - 1];
-			i--;
-		}	
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			pdest[i] = psrc[i];
-			i++;
-		}
-		// ft_memcpy(pdest, psrc, len);
-	}
-	return (dst);
-}
-
-
-void	ra(int *stk, int a0, int end)
+// スタックAをローテート。1番目の要素が最後になる。
+void	ra(int *stk, int a0, int size)
 {
 	int	tmp;
 
 	tmp = stk[a0];
-	ft_memmove(&stk[a0], &stk[a0 + 1], (int)(end - 1 - a0));
-	// stk[end - 1] = tmp;
+	ft_memmove(&stk[a0], &stk[a0 + 1], (size - 1 - a0) * sizeof(int));
+	stk[size - 1] = tmp;
 }
 
-void	rb(int *stk, int a0, int end)
+// スタックBをローテート。一番目の要素が最後になる。
+void	rb(int *stk, int a0, int size)
 {
 	int	tmp;
 
 	tmp = stk[0];
-	ft_memmove(&stk[0], &stk[1], (int)(a0 - 1));
+	ft_memmove(&stk[0], &stk[1], (a0 - 1) * sizeof(int));
+	stk[a0 - 1] = tmp;
+}
+
+// スタックAをローテート。1番目の要素が最後になる。
+void	rra(int *stk, int a0, int size)
+{
+	int	tmp;
+
+	tmp = stk[a0];
+	ft_memmove(&stk[a0], &stk[a0 + 1], (size - 1 - a0) * sizeof(int));
+	stk[size - 1] = tmp;
+}
+
+// スタックBをローテート。一番目の要素が最後になる。
+void	rrb(int *stk, int a0, int size)
+{
+	int	tmp;
+
+	tmp = stk[0];
+	ft_memmove(&stk[0], &stk[1], (a0 - 1) * sizeof(int));
 	stk[a0 - 1] = tmp;
 }

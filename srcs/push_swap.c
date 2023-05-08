@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/07 22:21:02 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/08 11:54:11 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,12 +141,17 @@ int	main(int argc, char **argv)
 		a0 = 0;
 		// sa(stk, a0, size);
 		// ra(stk, a0, size);
+		// rra(stk, a0, size);
+		// rra(stk, a0, size);
 		pb(stk, &a0, size);
 		pb(stk, &a0, size);
 		pb(stk, &a0, size);
 		printf("a0 = %d\n", a0);
-		rb(stk, a0, size);
-		rb(stk, a0, size);
+		// rb(stk, a0, size);
+		// rb(stk, a0, size);
+		rrr(stk, a0, size);
+		// rr(stk, a0, size);
+		// rb(stk, a0, size);
 		// sb(stk, a0, size);
 		// pa(stk, &a0, size);
 		// sa(stk, a0, size);

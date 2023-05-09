@@ -6,7 +6,7 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/05/05 21:51:46 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/09 15:16:20 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,20 @@ FILES		=	ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_strlen ft_mem
 				ft_substr ft_strjoin ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri \
 				ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
 				ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
+				ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+				ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
+				ft_lstclear ft_lstiter ft_lstmap
+SRCS_DIR	=	./
+SRCS		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+INC			=	../includes/
+OBJS		=	$(SRCS:.c=.o)
+
+ifdef WITH_DEBUG
+CFLAGS = -Wall -g3 -O0 -fsanitize=address
+endif
+
+%.o : %.c 
+	$(CC) $(CFLAGS) -I $(INC) -c -o $@ $<
 				ft_lstclear ft_lstiter ft_lstmap
 SRCS_DIR	=	./
 SRCS		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

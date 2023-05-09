@@ -6,13 +6,13 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:23:02 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/08 09:46:38 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:00:28 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// スタックAをローテート。1番目の要素が最後になる。
+// スタックAをシフトアップ。1番目の要素が最後になる。
 void	ra(int *stk, int a0, int size)
 {
 	int	tmp;
@@ -25,8 +25,8 @@ void	ra(int *stk, int a0, int size)
 	}
 }
 
-// スタックBをローテート。一番目の要素が最後になる。
-void	rb(int *stk, int a0, int size)
+// スタックBをシフトダウン。最後の要素が最初になる。
+void	rrb(int *stk, int a0, int size)
 {
 	int	tmp;
 
@@ -38,7 +38,7 @@ void	rb(int *stk, int a0, int size)
 	}
 }
 
-// スタックAを逆ローテート。最後の要素が最初になる。
+// スタックAをシフトダウン。最後の要素が最初になる。
 void	rra(int *stk, int a0, int size)
 {
 	int	tmp;
@@ -51,8 +51,8 @@ void	rra(int *stk, int a0, int size)
 	}
 }
 
-// スタックBをローテート。一番目の要素が最後になる。
-void	rrb(int *stk, int a0, int size)
+// スタックBをシフトアップ。一番目の要素が最後になる。
+void	rb(int *stk, int a0, int size)
 {
 	int	tmp;
 

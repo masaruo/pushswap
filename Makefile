@@ -6,7 +6,7 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/05/09 15:18:14 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/09 17:51:17 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,19 @@ CC			=	cc
 # CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS		=	-Wall
 RM			=	rm -f
-FILES		=	push_swap push_swap_cmd1 push_swap_cmd2 push_swap_cmd3
-# BONUS_FILES	=	pipex_bonus get_next_line get_next_line_utils \
-# 				pipex_bonus_utils
+FILES		=	push_swap push_swap_cmd1 push_swap_cmd2 push_swap_cmd3 ft_printf ft_printf_nbr ft_printf_utils
+# BONUS_FILES	=	pipex_bonus get_next_line get_next_line_utils pipex_bonus_utils
 SRCS_DIR	=	./srcs/
-BONUS_DIR	=	./srcs/
+# BONUS_DIR	=	./srcs/
 SRCS		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 SRCS_B		=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILES)))
 INC			=	./includes/
 OBJS		=	$(SRCS:.c=.o)
 OBJS_B		=	$(SRCS_B:.c=.o)
 
-ifdef WITH_BONUS
-OBJS += $(OBJS_B)
-endif
+# ifdef WITH_BONUS
+# OBJS += $(OBJS_B)
+# endif
 
 ifdef WITH_DEBUG
 CFLAGS = -Wall -g3 -O0 -fsanitize=address
@@ -44,7 +43,6 @@ $(NAME): $(OBJS)
 $(NAME)_bonus: $(OBJS_B)
 	make -C ./libft
 	$(CC) $(CFLAGS) $(OBJS_B) ./libft/libft.a -o $(NAME)
-# $(CC) $(CFLAGS) $(OBJS_B) ./libft/libft.a -o $(NAME)_bonus
 
 bonus: $(NAME)_bonus
 

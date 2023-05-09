@@ -6,7 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:50:40 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:28:33 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/24 06:47:10 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +36,12 @@ static const char	*ft_prefix(const char *s, int *is_minus)
 	return (s);
 }
 
+<<<<<<< HEAD
 // CHAR型の数値をINT型の数値に変換。前のスペースは無視
+=======
+// The atoi() function converts the initial portion of 
+// the string pointed to by str to int representation.
+>>>>>>> origin/master
 int	ft_atoi(const char *str)
 {
 	int			is_minus;

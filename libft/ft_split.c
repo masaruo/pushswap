@@ -6,7 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:18:48 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:40:48 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/23 16:44:01 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +94,10 @@ static size_t	ft_putstr_arr(char **res, char const *str, size_t *n, char c)
 }
 
 //array of strings obtained by splitting 's' by delimiter 'c'
+<<<<<<< HEAD
 //! FREE必要 ｓの文字列を分割記号ｃに分けて小配列に格納し、親配列をリターン
+=======
+>>>>>>> origin/master
 char	**ft_split(char const *s, char c)
 {
 	char		**res;

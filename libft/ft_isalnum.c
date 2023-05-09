@@ -6,13 +6,20 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 06:40:00 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:58:36 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/19 09:13:39 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+<<<<<<< HEAD
 // 文字ｃがアルファベットか数値なら１を返し、それ以外は０を返す
+=======
+>>>>>>> origin/master
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))

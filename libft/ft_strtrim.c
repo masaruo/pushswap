@@ -6,7 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:36:41 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:58:27 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/23 13:55:52 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +28,10 @@ static int	is_charset(char c, char const *charset)
 }
 
 // return s1 with *set of chars removed from head & tail.
+<<<<<<< HEAD
 //!FREE必要　ｓ１からsetに含まれるそれぞれの文字を頭末から削除し、新たな文字列を返す
+=======
+>>>>>>> origin/master
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*res;

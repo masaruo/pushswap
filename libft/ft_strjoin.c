@@ -6,14 +6,21 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:30:34 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:40:11 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/20 17:53:38 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // return a new string by concatinating s1 & s2
+<<<<<<< HEAD
 //! FREE必要　文字列を結合して返す
+=======
+>>>>>>> origin/master
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t		len;

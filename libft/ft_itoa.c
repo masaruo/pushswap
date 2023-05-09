@@ -6,7 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:11:31 by mogawa            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/07 22:41:02 by mogawa           ###   ########.fr       */
+=======
+/*   Updated: 2023/01/20 19:18:53 by mogawa           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +63,10 @@ void	ft_putnbr_arr(int n, char *arr, size_t *cnt)
 }
 
 // returns a string representing provided int 'n'. 
+<<<<<<< HEAD
 // !FREE必要 数値型ｎを文字列に格納して返す。
+=======
+>>>>>>> origin/master
 char	*ft_itoa(int n)
 {
 	size_t		digits;

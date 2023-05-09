@@ -6,21 +6,14 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:31:56 by mogawa            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/05/07 22:58:19 by mogawa           ###   ########.fr       */
-=======
-/*   Updated: 2023/01/17 18:36:18 by mogawa           ###   ########.fr       */
->>>>>>> origin/master
+/*   Updated: 2023/05/09 12:00:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // returns a substring from 'start' for 'len'gth from string *s.
-<<<<<<< HEAD
 //!FREE必要 文字列ｓのstartからlen文字分を新たな文字列として返す。
-=======
->>>>>>> origin/master
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*str;

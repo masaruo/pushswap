@@ -6,20 +6,13 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:11:04 by mogawa            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/05/07 22:40:35 by mogawa           ###   ########.fr       */
-=======
-/*   Updated: 2023/01/20 17:49:10 by mogawa           ###   ########.fr       */
->>>>>>> origin/master
+/*   Updated: 2023/05/09 12:02:42 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-<<<<<<< HEAD
 //! FREE必要 文字列ｓ１をコピーし、メモリー確保した新たな文字列を返す
-=======
->>>>>>> origin/master
 char	*ft_strdup(const char *s1)
 {
 	char		*res;

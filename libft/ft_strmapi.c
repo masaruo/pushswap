@@ -6,21 +6,14 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:12:06 by mogawa            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/05/07 22:58:32 by mogawa           ###   ########.fr       */
-=======
-/*   Updated: 2023/01/20 18:10:27 by mogawa           ###   ########.fr       */
->>>>>>> origin/master
+/*   Updated: 2023/05/09 12:02:22 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // applies func 'f' to each char of the string 's' to create new string
-<<<<<<< HEAD
 //!FREE必要　文字列ｓのそれぞれの文字に関数ｆを適応し、新たな文字列を返す
-=======
->>>>>>> origin/master
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char		*res;

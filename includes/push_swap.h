@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/09 17:40:30 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/10 17:14:37 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,12 @@ void	rrb(int *stk, int a0, int size);
 void	ss(int *stk, int a0, int size);
 void	rr(int *stk, int a0, int size);
 void	rrr(int *stk, int a0, int size);
+void	ft_err_exit(void);
+int		*ft_get_arr(char **argv, size_t size);
+size_t	ft_get_size(char **argv);
+int		ft_atoi_cnt(const char *str, int *j);
+void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
+int		ft_isspace_cnt(const char c);
+int		*ft_conv_cordinate(int *stk, size_t size);
 
 #endif

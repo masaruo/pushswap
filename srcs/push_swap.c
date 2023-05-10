@@ -6,139 +6,25 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/09 15:17:07 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/10 17:13:43 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_isspace_cnt(const char c)
-{
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r'
-		|| c == '\t' || c == '\v')
-		return (1);
-	else
-		return (0);
-}
-
-static void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
-{
-	while (ft_isspace_cnt(s[*j]))
-		*j = *j + 1;
-	if (s[*j] == '-')
-		*is_minus = -1;
-	if (s[*j] == '-' || s[*j] == '+')
-		*j = *j + 1;
-	return ;
-}
-
-// The atoi() function converts the initial portion of 
-// the string pointed to by str to int representation.
-static int	ft_atoi_cnt(const char *str, int *j)
-{
-	int			is_minus;
-	long		num;
-	const char	*s;
-
-	is_minus = 0;
-	ft_prefix_cnt(str, &is_minus, j);
-	num = 0;
-	s = str;
-	while (ft_isdigit(s[*j]))
-	{
-		if (!is_minus && num > LONG_MAX / 10)
-			return ((int)LONG_MAX);
-		if (is_minus && num > LONG_MAX / 10)
-			return ((int)LONG_MIN);
-		num = num * 10;
-		if (!is_minus && num > LONG_MAX - (s[*j] - '0'))
-			return ((int)LONG_MAX);
-		if (is_minus && num - 1 > LONG_MAX - (s[*j] - '0'))
-			return ((int)LONG_MIN);
-		num = num + (s[*j] - '0');
-		*j = *j + 1;
-	}
-	if (is_minus)
-		return ((int)(num * -1));
-	else
-		return ((int)num);
-}
-
-static size_t	ft_get_size(char **argv)
-{
-	int		num;
-	char	*s;
-	int		i;
-	int		j;
-	int		n;
-
-	i = 1;
-	n = 0;
-	if (!**argv)// todo empty string error ""
-		return (NULL);
-	while (argv[i])
-	{
-		j = 0;
-		s = ft_strtrim(argv[i], " , \t");
-		while (1)
-		{
-			num = ft_atoi_cnt(s, &j);
-			n++;
-			if (!s[j])
-				break ;
-			j++;
-		}
-		free(s);
-		i++;
-	}
-	return (n);
-}
-
-static int	*ft_get_arr(char **argv, size_t size)
-{
-	int		*stk;
-	char	*s;
-	int		i;
-	int		j;
-	int		n;
-
-	i = 1;
-	n = 0;
-	if (!**argv)// todo empty string error ""
-		return (NULL);
-	stk = malloc(sizeof(int) * (size + 1));
-	if (stk == NULL)
-		return (NULL);
-	while (argv[i])
-	{
-		j = 0;
-		s = ft_strtrim(argv[i], " , \t");
-		while (1)
-		{
-			stk[n] = ft_atoi_cnt(s, &j);
-			n++;
-			if (!s[j])
-				break ;
-			j++;
-		}
-		free(s);
-		i++;
-	}
-	stk[n] = NULL;
-	return (stk);
-}
 
 int	main(int argc, char **argv)
 {
 	size_t	a0;
 	size_t	size;
 	int		*stk;
-
-	if (argv > 0)
+	if (argc > 1)
 	{
 		int	i = 0;
 		size = ft_get_size(argv);
 		stk = ft_get_arr(argv, size);
+		stk = ft_conv_cordinate(stk, size);
+		while (i < size)
+			printf("init:%d\n", stk[i++]);
 		a0 = 0;
 		sa(stk, a0, size);
 		pb(stk, &a0, size);
@@ -156,7 +42,7 @@ int	main(int argc, char **argv)
 		pa(stk, &a0, size);
 		pa(stk, &a0, size);
 		pa(stk, &a0, size);
-		// printf("=====\n");
+		printf("=====\n");
 		// rb(stk, a0, size);
 		// rrr(stk, a0, size);
 		// rr(stk, a0, size);
@@ -170,6 +56,10 @@ int	main(int argc, char **argv)
 		while (i < size)
 			printf("%d\n", stk[i++]);
 	}
+	else if (argc == 1)
+		return (0);
+	else
+		ft_err_exit();
 	return (0);
 }
 

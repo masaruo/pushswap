@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 16:34:44 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/10 14:44:54 by mogawa           ###   ########.fr       */
+/*   Created: 2023/05/10 14:39:16 by mogawa            #+#    #+#             */
+/*   Updated: 2023/05/10 17:16:38 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
+#include "push_swap.h"
 
-int		ft_printf(const char *fmt, ...);
-ssize_t	ft_arg_handler(char c, va_list *ap);
-ssize_t	ft_putchar_cnt(char c);
-ssize_t	ft_putstr_cnt(char *s);
-ssize_t	ft_putnbr_base(unsigned long n, size_t base, char *nbr);
-ssize_t	ft_putnbr_int(int n);
-
-#endif
+void	ft_err_exit(void)
+{
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(-1);
+}

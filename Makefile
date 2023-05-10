@@ -6,7 +6,7 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/05/09 17:51:17 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/10 17:16:49 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ CC			=	cc
 # CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS		=	-Wall
 RM			=	rm -f
-FILES		=	push_swap push_swap_cmd1 push_swap_cmd2 push_swap_cmd3 ft_printf ft_printf_nbr ft_printf_utils
+FILES		=	push_swap push_swap_cmd1 push_swap_cmd2 push_swap_cmd3 ft_printf \
+				ft_printf_nbr ft_printf_utils push_swap_utils \
+				push_swap_make_stk
 # BONUS_FILES	=	pipex_bonus get_next_line get_next_line_utils pipex_bonus_utils
 SRCS_DIR	=	./srcs/
 # BONUS_DIR	=	./srcs/

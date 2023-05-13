@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/11 18:07:16 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/13 13:10:36 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ size_t	ft_get_size(char **argv);
 int		ft_atoi_cnt(const char *str, int *j);
 void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
 int		ft_isspace_cnt(const char c);
-void	*ft_qsort(int *stk, int left, int right);
+void	ft_qsort(int *stk, int left, int right);
+void	ft_stk_compress(int *stk, int *sorted, int size);
 
 #endif

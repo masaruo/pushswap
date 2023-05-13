@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/11 18:11:18 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/13 13:12:06 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	*ft_get_arr(char **argv, size_t size)
 
 	i = 1;
 	n = 0;
-	stk = malloc(sizeof(int) * (size + 1));//? + 1 need?
+	stk = malloc(sizeof(int) * (size));
 	if (stk == NULL)
 		ft_err_exit();
 	while (argv[i])
@@ -118,11 +118,11 @@ int	*ft_get_arr(char **argv, size_t size)
 		free(s);
 		i++;
 	}
-	stk[n] = NULL;//? need?
+	// stk[n] = NULL;//? need?
 	return (stk);
 }
 
-void	*ft_qsort(int *stk, int left, int right)
+void	ft_qsort(int *stk, int left, int right)
 {
 	int	pivot;
 	int	l;
@@ -147,4 +147,29 @@ void	*ft_qsort(int *stk, int left, int right)
 		ft_qsort(stk, left, l - 1);
 	if (r + 1 < right)
 		ft_qsort(stk, r + 1, right);
+}
+
+void	ft_stk_compress(int *stk, int *sorted, int size)
+{
+	size_t	i;
+	size_t	j;
+	int		num;
+
+	i = 0;
+	while (i < size)
+	{
+		// ft_dup_check
+		num = sorted[i];
+		j = 0;
+		while (j < size)
+		{
+			if (stk[j] == num)
+			{
+				stk[j] = i;
+				break ;
+			}
+			j++;
+		}
+		i++;
+	}
 }

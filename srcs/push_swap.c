@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 13:08:11 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/13 18:24:51 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,48 @@ int	main(int argc, char **argv)
 	size_t	size;
 	int		*stk_free;//todo need free
 	int		*to_sort_free;//todo need free
+	t_stk	stk;
 
 	if (argc > 1)
 	{
+		stk.size = ft_get_size(argv);
+		stk.stk_original = ft_get_arr(argv, stk.size);
+		
 		int	i = 0;
+		
 		size = ft_get_size(argv);
 		stk_free = ft_get_arr(argv, size);
 		to_sort_free = malloc(sizeof(int) * size);
 		ft_memmove(to_sort_free, stk_free, sizeof(int) * size);
 		ft_qsort(to_sort_free, 0, size - 1);
 		ft_stk_compress(stk_free, to_sort_free, size);
-		while (i < size)
-			printf("tosort:%d\n", stk_free[i++]);
-			// printf("init:%d\n", stk_free[i++]);
 		a0 = 0;
-		sa(stk_free, a0, size);
-		pb(stk_free, &a0, size);
-		pb(stk_free, &a0, size);
-		pb(stk_free, &a0, size);
-		printf("a0 = %d\n", a0);
-		ra(stk_free, a0, size);
-		i = 0;
+		ft_radix_sort(stk_free, a0, &a0, size);
+			printf("====zaatsu====\n");
+		while (i < size)
+		{
+			printf("%d", stk_free[i]);
+			i++;
+		}
+			printf("\n========\n");
+			// printf("init:%d\n", stk_free[i++]);
+		// sa(stk_free, a0, size);
+		// pb(stk_free, &a0, size);
+		// pb(stk_free, &a0, size);
+		// pb(stk_free, &a0, size);
+		// printf("a0 = %d\n", a0);
+		// ra(stk_free, a0, size);
+		// i = 0;
 		// while (i < size)
 		// 	printf("%d\n", stk_free[i++]);
-		rb(stk_free, a0, size);
-		rra(stk_free, a0, size);
-		rrb(stk_free, a0, size);
-		sa(stk_free, a0, size);
-		pa(stk_free, &a0, size);
-		pa(stk_free, &a0, size);
-		pa(stk_free, &a0, size);
-		printf("=====\n");
+		// rb(stk_free, a0, size);
+		// rra(stk_free, a0, size);
+		// rrb(stk_free, a0, size);
+		// sa(stk_free, a0, size);
+		// pa(stk_free, &a0, size);
+		// pa(stk_free, &a0, size);
+		// pa(stk_free, &a0, size);
+		// printf("=====\n");
 		// rb(stk_free, a0, size);
 		// rrr(stk_free, a0, size);
 		// rr(stk_free, a0, size);

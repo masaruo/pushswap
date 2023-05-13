@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 13:12:06 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/13 13:22:40 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void	ft_stk_compress(int *stk, int *sorted, int size)
 	i = 0;
 	while (i < size)
 	{
-		// ft_dup_check
+		//! ft_dup_check
 		num = sorted[i];
 		j = 0;
 		while (j < size)
@@ -172,4 +172,5 @@ void	ft_stk_compress(int *stk, int *sorted, int size)
 		}
 		i++;
 	}
+	free(sorted);
 }

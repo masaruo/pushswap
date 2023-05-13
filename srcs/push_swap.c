@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/10 17:13:43 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:15:38 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		int	i = 0;
 		size = ft_get_size(argv);
 		stk = ft_get_arr(argv, size);
-		stk = ft_conv_cordinate(stk, size);
+		ft_qsort(stk, 0, size - 1);
 		while (i < size)
 			printf("init:%d\n", stk[i++]);
 		a0 = 0;

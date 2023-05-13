@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/10 17:43:20 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/11 18:11:18 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,8 @@ int	ft_atoi_cnt(const char *str, int *j)
 	s = str;
 	while (s[*j])
 	{
-		// if (!is_minus && num > LONG_MAX / 10)
 		if (num > LONG_MAX / 10)
 			ft_err_exit();
-		// if (is_minus && num > LONG_MAX / 10)
-		// 	ft_err_exit();
 		num = num * 10;
 		if (!is_minus && num > LONG_MAX - (s[*j] - '0'))
 			ft_err_exit();
@@ -77,8 +74,6 @@ size_t	ft_get_size(char **argv)
 	n = 0;
 	while (argv[i])
 	{
-		// if (!argv[i][0])
-		// 	ft_err_exit();
 		j = 0;
 		s = ft_strtrim(argv[i], " , \t");
 		while (1)
@@ -127,34 +122,29 @@ int	*ft_get_arr(char **argv, size_t size)
 	return (stk);
 }
 
-int	*ft_conv_cordinate(int *stk, size_t size)
+void	*ft_qsort(int *stk, int left, int right)
 {
-	int		to_find;
-	size_t	i;
-	size_t	j;
+	int	pivot;
+	int	l;
+	int	r;
 
-	// cordinated = malloc(sizeof(int) * (size));
-	// if (!cordinated)
-	// {
-	// 	free(stk);
-	// 	ft_err_exit();
-	// }
-	i = 0;
-	j = 0;
-	to_find = INT_MIN;
-	while (i < size)
+	l = left;
+	r = right;
+	pivot = stk[(left + right) / 2];
+	while (1)
 	{
-		while (to_find < INT_MAX)
-		{
-			if (stk[i] == to_find)
-			{
-				stk[i] == j;
-				j++;
-				break ;
-			}
-			to_find++;
-		}
-		i++;
+		while (stk[l] < pivot)
+			l++;
+		while (pivot < stk[r])
+			r--;
+		if (l >= r)
+			break ;
+		ft_swap(&stk[l], &stk[r]);
+		l++;
+		r--;
 	}
-	return (stk);
+	if (left < l - 1)
+		ft_qsort(stk, left, l - 1);
+	if (r + 1 < right)
+		ft_qsort(stk, r + 1, right);
 }

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 17:14:05 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:26:22 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,6 @@ int	*ft_get_arr(char **argv, size_t size)
 		free(s);
 		i++;
 	}
-	// stk[n] = NULL;//? need?
 	return (stk);
 }
 
@@ -153,9 +152,9 @@ void	ft_stk_compress(t_stk *stk)
 {
 	size_t	i;
 	size_t	j;
-	int		num;
 
 	i = 0;
+	//! dup check needed
 	while (i < stk->size)
 	{
 		j = 0;
@@ -171,31 +170,5 @@ void	ft_stk_compress(t_stk *stk)
 		i++;
 	}
 	free(stk->stk_sorted_fr);
-	// free(stk->stk_fr);
+	free(stk->stk_fr);
 }
-
-// void	ft_stk_compress(int *stk, int *sorted, int size)
-// {
-// 	size_t	i;
-// 	size_t	j;
-// 	int		num;
-
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		//! ft_dup_check
-// 		num = sorted[i];
-// 		j = 0;
-// 		while (j < size)
-// 		{
-// 			if (stk[j] == num)
-// 			{
-// 				stk[j] = i;
-// 				break ;
-// 			}
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	free(sorted);
-// }

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/09 15:16:36 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:36:59 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,18 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	sa(int *stk, int a0, int size)
+void	sa(t_stk stk)
 {
-	if (a0 <= size - 2)
-	{
-		ft_swap(&stk[a0], &stk[a0 + 1]);
-	}
+	
 }
+
+// void	sa(int *stk, int a0, int size)
+// {
+// 	if (a0 <= size - 2)
+// 	{
+// 		ft_swap(&stk[a0], &stk[a0 + 1]);
+// 	}
+// }
 
 void	sb(int *stk, int a0, int size)
 {

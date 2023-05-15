@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 18:26:22 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:51:37 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ void	ft_stk_compress(t_stk *stk)
 		{
 			if (stk->stk_fr[j] == stk->stk_sorted_fr[i])
 			{
-				stk->stk_abs_fr[j] = i;
+				stk->stkf[j] = i;
 				break ;
 			}
 			j++;

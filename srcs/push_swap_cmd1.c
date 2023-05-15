@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 18:36:59 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:52:31 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	sa(t_stk stk)
+void	sa(t_stk *stk)
 {
-	
+	if (stk->slit <= stk->size - 2)
+	{
+		ft_swap(&stk->stkf[stk->slit], &stk->stkf[stk->slit + 1]);
+	}
 }
 
 // void	sa(int *stk, int a0, int size)

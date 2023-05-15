@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 18:22:28 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:44:04 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ typedef struct s_stk
 	size_t	size;
 	int		*stk_fr;
 	int		*stk_sorted_fr;
-	size_t	*stk_abs_fr;
+	size_t	*stkf;
 	size_t	slit;
 }	t_stk;
 
 void	*ft_mk_stk(char **argv, t_stk *stk);
 void	ft_swap(int *a, int *b);
-void	sa(int *stk, int a0, int size);
+void	sa(t_stk *stk);
 void	sb(int *stk, int a0, int size);
 void	ss(int *stk, int a0, int size);
 void	pa(int *stk, int *a0, int size);

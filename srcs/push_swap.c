@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 18:35:38 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:53:21 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_mk_stk(char **argv, t_stk *stk)
 	stk->size = ft_get_size(argv);
 	stk->stk_fr = ft_get_arr(argv, stk->size);
 	stk->stk_sorted_fr = malloc(sizeof(int) * stk->size);//todo error
-	stk->stk_abs_fr = malloc(sizeof(size_t) * stk->size);//todo error
+	stk->stkf = malloc(sizeof(size_t) * stk->size);//todo error
 	ft_memmove(stk->stk_sorted_fr, stk->stk_fr, sizeof(int) * stk->size);
 	ft_qsort(stk->stk_sorted_fr, 0, stk->size - 1);
 	ft_stk_compress(stk);
@@ -31,15 +31,19 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		ft_mk_stk(argv, &stk);
-		ft_printf("====zaatsu====\n");
+		ft_printf("====stkf====\n");
 		int i = 0;
 		while (i < stk.size)
-		{
-			ft_printf("%d\n", stk.stk_abs_fr[i]);//!
-			i++;
-		}
+			ft_printf("%d\n", stk.stkf[i++]);//!
 		ft_printf("\n========\n");//!
-		free(stk.stk_abs_fr);
+		sa(&stk);
+		// sa(&stk);
+		ft_printf("====after op====\n");
+		i = 0;
+		while (i < stk.size)
+			ft_printf("%d\n", stk.stkf[i++]);//!
+		ft_printf("\n========\n");//!
+		free(stk.stkf);
 	}
 	else if (argc == 1)
 		return (0);

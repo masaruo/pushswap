@@ -6,15 +6,15 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 18:52:31 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 19:24:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
+void	ft_swap(size_t *a, size_t *b)
 {
-	int	tmp;
+	size_t	tmp;
 
 	tmp = *a;
 	*a = *b;
@@ -29,34 +29,44 @@ void	sa(t_stk *stk)
 	}
 }
 
-// void	sa(int *stk, int a0, int size)
+void	sb(t_stk *stk)
+{
+	if (2 <= stk->size)
+	{
+		ft_swap(&stk->stkf[stk->size - 1], &stk->stkf[stk->size - 2]);
+	}
+}
+
+// スタックBからAに要素を移す
+void	pa(t_stk *stk)
+{
+	if (1 <= stk->slit)
+	{
+		stk->slit--;
+	}
+}
+
+// スタックAからBに要素を移す
+void	pb(t_stk *stk)
+{
+	if (stk->slit != stk->size)
+	{
+		stk->slit++;
+	}
+}
+
+// void	pa(int *stk, int *a0, int size)
 // {
-// 	if (a0 <= size - 2)
+// 	if (1 <= *a0)
 // 	{
-// 		ft_swap(&stk[a0], &stk[a0 + 1]);
+// 		*a0 = *a0 - 1;
 // 	}
 // }
 
-void	sb(int *stk, int a0, int size)
-{
-	if (2 <= a0)
-	{
-		ft_swap(&stk[a0 - 1], &stk[a0 - 2]);
-	}
-}
-
-void	pa(int *stk, int *a0, int size)
-{
-	if (1 <= *a0)
-	{
-		*a0 = *a0 - 1;
-	}
-}
-
-void	pb(int *stk, int *a0, int size)
-{
-	if (*a0 != size)
-	{
-		*a0 = *a0 + 1;
-	}
-}
+// void	pb(int *stk, int *a0, int size)
+// {
+// 	if (*a0 != size)
+// 	{
+// 		*a0 = *a0 + 1;
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 18:09:57 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 19:13:07 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_radix_sort(int *stk, int a0val, int *a0ptr, int size)
 		while (i < size)
 		{
 			if ((stk[i] >> j & 1) == 0)
-				pb(stk, a0ptr, size);
+				// pb(stk, a0ptr, size);
 			i++;
 		}
 	}

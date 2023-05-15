@@ -6,42 +6,49 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 18:24:51 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 17:12:23 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_stk	*ft_mk_stk(char **argv)
+{
+	t_stk	*stk;
+	stk->size = ft_get_size(argv);
+	stk->stk_fr = ft_get_arr(argv, stk->size);
+	stk->stk_sorted_fr = malloc(sizeof(int) * stk->size);//todo error
+	stk->stk_abs_fr = malloc(sizeof(size_t) * stk->size);//todo error
+	ft_memmove(stk->stk_sorted_fr, stk->stk_fr, sizeof(int) * stk->size);
+	ft_qsort(stk->stk_sorted_fr, 0, stk->size - 1);
+	ft_stk_compress(stk);
+	stk->slit = 0;
+	return (stk);
+}
+
 int	main(int argc, char **argv)
 {
-	size_t	a0;
-	size_t	size;
-	int		*stk_free;//todo need free
-	int		*to_sort_free;//todo need free
-	t_stk	stk;
+	t_stk	*stk;
 
 	if (argc > 1)
 	{
-		stk.size = ft_get_size(argv);
-		stk.stk_original = ft_get_arr(argv, stk.size);
-		
-		int	i = 0;
-		
-		size = ft_get_size(argv);
-		stk_free = ft_get_arr(argv, size);
-		to_sort_free = malloc(sizeof(int) * size);
-		ft_memmove(to_sort_free, stk_free, sizeof(int) * size);
-		ft_qsort(to_sort_free, 0, size - 1);
-		ft_stk_compress(stk_free, to_sort_free, size);
-		a0 = 0;
-		ft_radix_sort(stk_free, a0, &a0, size);
-			printf("====zaatsu====\n");
-		while (i < size)
+		// size = ft_get_size(argv);
+		// stk_free = ft_get_arr(argv, size);
+		// to_sort_free = malloc(sizeof(int) * size);
+		// ft_memmove(to_sort_free, stk_free, sizeof(int) * size);
+		// ft_qsort(to_sort_free, 0, size - 1);
+		// ft_stk_compress(stk_free, to_sort_free, size);
+		// a0 = 0;
+		// ft_radix_sort(stk_free, a0, &a0, size);
+		ft_mk_stk(argv);
+		printf("====zaatsu====\n");
+		int i = 0;
+		while (i < stk->size)
 		{
-			printf("%d", stk_free[i]);
+			printf("%d", stk->stk_abs_fr[i]);
 			i++;
 		}
-			printf("\n========\n");
+		printf("\n========\n");
 			// printf("init:%d\n", stk_free[i++]);
 		// sa(stk_free, a0, size);
 		// pb(stk_free, &a0, size);
@@ -69,9 +76,9 @@ int	main(int argc, char **argv)
 		// sb(stk_free, a0, size);
 		// sb(stk_free, a0);
 		// ss(stk_free, a0);
-		i = 0;
-		while (i < size)
-			printf("%d\n", stk_free[i++]);
+		// i = 0;
+		// while (i < size)
+		// 	printf("%d\n", stk_free[i++]);
 	}
 	else if (argc == 1)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:36:41 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/09 15:15:23 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 12:32:53 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	is_charset(char c, char const *charset)
 }
 
 // return s1 with *set of chars removed from head & tail.
-//!FREE必要　ｓ１からsetに含まれるそれぞれの文字を頭末から削除し、新たな文字列を返す
+//!FREE必要　s1からsetに含まれる文字群を頭末から削除し、新たな文字列を返す
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*res;

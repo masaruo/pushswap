@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 13:22:40 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 17:14:05 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,28 +149,53 @@ void	ft_qsort(int *stk, int left, int right)
 		ft_qsort(stk, r + 1, right);
 }
 
-void	ft_stk_compress(int *stk, int *sorted, int size)
+void	ft_stk_compress(t_stk *stk)
 {
 	size_t	i;
 	size_t	j;
 	int		num;
 
 	i = 0;
-	while (i < size)
+	while (i < stk->size)
 	{
-		//! ft_dup_check
-		num = sorted[i];
 		j = 0;
-		while (j < size)
+		while (j < stk->size)
 		{
-			if (stk[j] == num)
+			if (stk->stk_fr[j] == stk->stk_sorted_fr[i])
 			{
-				stk[j] = i;
+				stk->stk_abs_fr[j] = i;
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-	free(sorted);
+	free(stk->stk_sorted_fr);
+	// free(stk->stk_fr);
 }
+
+// void	ft_stk_compress(int *stk, int *sorted, int size)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	int		num;
+
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		//! ft_dup_check
+// 		num = sorted[i];
+// 		j = 0;
+// 		while (j < size)
+// 		{
+// 			if (stk[j] == num)
+// 			{
+// 				stk[j] = i;
+// 				break ;
+// 			}
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	free(sorted);
+// }

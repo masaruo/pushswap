@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 19:16:07 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 20:57:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	ft_qsort(int *stk, int left, int right)
 			r--;
 		if (l >= r)
 			break ;
-		ft_swap(&stk[l], &stk[r]);
+		ft_swap_int(&stk[l], &stk[r]);
 		l++;
 		r--;
 	}

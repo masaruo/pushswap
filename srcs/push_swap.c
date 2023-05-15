@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 19:23:39 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 21:14:14 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,24 @@ int	main(int argc, char **argv)
 
 
 
-		// sa(&stk);
-		// sa(&stk);
 		pb(&stk);
 		pb(&stk);
-		sb(&stk);
-		pa(&stk);
-		pa(&stk);
-		sb(&stk);
+		pb(&stk);
+		// sb(&stk);
+		// pa(&stk);
+		// pa(&stk);
+		// sb(&stk);
 		sa(&stk);
-		
-		
+		sb(&stk);
+		rb(&stk);
+		rb(&stk);
+		rrb(&stk);
+		rrb(&stk);
+		pa(&stk);
+		pa(&stk);
+		ra(&stk);
+		ra(&stk);
+		rra(&stk);
 		ft_printf("====after op====\n");
 		i = 0;
 		while (i < stk.size)

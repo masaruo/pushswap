@@ -6,15 +6,24 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 19:24:57 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 21:08:36 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(size_t *a, size_t *b)
+void	ft_swap_sizet(size_t *a, size_t *b)
 {
 	size_t	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	ft_swap_int(int *a, int *b)
+{
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;
@@ -25,15 +34,15 @@ void	sa(t_stk *stk)
 {
 	if (stk->slit <= stk->size - 2)
 	{
-		ft_swap(&stk->stkf[stk->slit], &stk->stkf[stk->slit + 1]);
+		ft_swap_sizet(&stk->stkf[stk->slit], &stk->stkf[stk->slit + 1]);
 	}
 }
 
 void	sb(t_stk *stk)
 {
-	if (2 <= stk->size)
+	if (2 <= stk->slit)
 	{
-		ft_swap(&stk->stkf[stk->size - 1], &stk->stkf[stk->size - 2]);
+		ft_swap_sizet(&stk->stkf[stk->slit - 1], &stk->stkf[stk->slit - 2]);
 	}
 }
 

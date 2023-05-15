@@ -6,13 +6,13 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 19:13:07 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/15 21:19:32 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_radix_sort(int *stk, int a0val, int *a0ptr, int size)
+void	ft_radix_sort(t_stk *stk)
 {
 	size_t	i;
 	size_t	j;
@@ -21,7 +21,7 @@ void	ft_radix_sort(int *stk, int a0val, int *a0ptr, int size)
 	j = 0;
 	while (j < 32)
 	{
-		while (i < size)
+		while (i < stk->size)
 		{
 			if ((stk[i] >> j & 1) == 0)
 				// pb(stk, a0ptr, size);

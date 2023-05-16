@@ -6,11 +6,11 @@
 #    By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 16:04:53 by mogawa            #+#    #+#              #
-#    Updated: 2023/05/13 14:22:19 by mogawa           ###   ########.fr        #
+#    Updated: 2023/05/16 16:13:30 by mogawa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	pushswap
+NAME		=	push_swap
 CC			=	cc
 # CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS		=	-Wall

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:23:02 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 20:34:50 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:17 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,6 @@ void	rb(t_stk *stk)
 	}
 }
 
-// void	rb(int *stk, int a0, int size)
-// {
-// 	int	tmp;
-
-// 	if (2 <= a0)
-// 	{
-// 		tmp = stk[a0 - 1];
-// 		ft_memmove(&stk[1], &stk[0], (a0 - 1) * sizeof(int));
-// 		stk[0] = tmp;
-// 	}
-// }
-
-// void	ra(int *stk, int a0, int size)
-// {
-// 	int	tmp;
-
-// 	if (a0 <= size - 2)
-// 	{
-// 		tmp = stk[a0];
-// 		ft_memmove(&stk[a0], &stk[a0 + 1], (size - 1 - a0) * sizeof(int));
-// 		stk[size - 1] = tmp;
-// 	}
-// }
-
 // スタックBをシフトダウン。最後の要素が最初になる。
 void	rrb(t_stk *stk)
 {
@@ -87,29 +63,3 @@ void	rra(t_stk *stk)
 		stk->stkf[stk->slit] = tmp;
 	}
 }
-
-// // スタックBをシフトダウン。最後の要素が最初になる。
-// void	rrb(int *stk, int a0, int size)
-// {
-// 	int	tmp;
-
-// 	if (2 <= a0)
-// 	{
-// 		tmp = stk[0];
-// 		ft_memmove(&stk[0], &stk[1], (a0 - 1) * sizeof(int));
-// 		stk[a0 - 1] = tmp;
-// 	}
-// }
-
-// // スタックAをシフトダウン。最後の要素が最初になる。
-// void	rra(int *stk, int a0, int size)
-// {
-// 	int	tmp;
-
-// 	if (a0 <= size -2)
-// 	{
-// 		tmp = stk[size - 1];
-// 		ft_memmove(&stk[a0 + 1], &stk[a0], (size - 1 - a0) * sizeof(int));
-// 		stk[a0] = tmp;
-// 	}
-// }

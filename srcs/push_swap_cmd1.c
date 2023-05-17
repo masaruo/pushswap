@@ -6,29 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/17 14:42:51 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:50 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_swap_sizet(size_t *a, size_t *b)
-{
-	size_t	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void	ft_swap_int(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
 
 void	sa(t_stk *stk)
 {

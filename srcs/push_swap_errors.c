@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:39:16 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/13 11:19:38 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:15:11 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,3 @@ void	ft_err_exit(void)
 	ft_putendl_fd("Error", STDERR_FILENO);
 	exit(-1);
 }
-

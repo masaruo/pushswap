@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 21:08:36 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:42:51 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,3 @@ void	pb(t_stk *stk)
 		stk->slit++;
 	}
 }
-
-// void	pa(int *stk, int *a0, int size)
-// {
-// 	if (1 <= *a0)
-// 	{
-// 		*a0 = *a0 - 1;
-// 	}
-// }
-
-// void	pb(int *stk, int *a0, int size)
-// {
-// 	if (*a0 != size)
-// 	{
-// 		*a0 = *a0 + 1;
-// 	}
-// }

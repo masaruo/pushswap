@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 21:18:44 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 15:26:38 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
 int		ft_isspace_cnt(const char c);
 void	ft_qsort(int *stk, int left, int right);
 void	ft_stk_compress(t_stk *stk);
+size_t	ft_get_max_bits(size_t n);
 void	ft_radix_sort(t_stk *stk);
 
 #endif

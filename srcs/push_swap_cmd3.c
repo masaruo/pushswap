@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 23:01:40 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/15 19:28:35 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:42 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,22 @@ void	rrr(t_stk *stk)
 {
 	rra(stk);
 	rrb(stk);
+}
+
+void	ft_swap_sizet(size_t *a, size_t *b)
+{
+	size_t	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	ft_swap_int(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/17 15:26:38 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:39:01 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 # include "libft.h"
 # include "ft_printf.h"
 
+// bit size long long max + 1
+typedef struct s_elm
+{
+	size_t	dt;
+	char	bit[21];
+}	t_elm;
+
 typedef struct s_stk
 {
 	size_t	size;
@@ -22,6 +29,7 @@ typedef struct s_stk
 	int		*stk_sorted_fr;
 	size_t	*stkf;
 	size_t	slit;
+	t_elm	*s;
 }	t_stk;
 
 void	*ft_mk_stk(char **argv, t_stk *stk);
@@ -49,5 +57,7 @@ void	ft_qsort(int *stk, int left, int right);
 void	ft_stk_compress(t_stk *stk);
 size_t	ft_get_max_bits(size_t n);
 void	ft_radix_sort(t_stk *stk);
+void	*ft_xcalloc(size_t count, size_t size);
+void	ft_itoa_sizet(t_stk *stk);
 
 #endif

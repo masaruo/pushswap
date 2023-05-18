@@ -6,13 +6,10 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:11:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/17 23:43:49 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:39:29 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include "push_swap.h"
 
 // // count how many digits does 'n' have.
@@ -51,30 +48,32 @@ static void	ft_putnbr_arr(size_t n, char *arr, size_t *cnt, size_t base)
 
 // returns a string representing provided int 'n'. 
 // !FREE必要 数値型ｎを文字列に格納して返す。
-char	*ft_itoa_sizet(size_t n)
+void	ft_itoa_sizet(t_stk *stk)
 {
-	size_t		digits;
-	char		*res;
-	size_t		cnt;
+	size_t	cnt;
+	size_t	i;
+	size_t	base;
+	size_t	n;
+	char	*bits;
 
-	digits = 21;
-	// digits = ft_putnbr_cnt(n);
-	res = malloc(sizeof(char) * (digits + 1));
-	// res = ft_calloc(digits, sizeof(char));
-	if (res == NULL)
-		return (NULL);
-	cnt = 0;
-	ft_putnbr_arr(n, res, &cnt, 3);
-	res[cnt] = '\0';
-	return (res);
+	base = 3;
+	i = 0;
+	while (i < stk->size)
+	{
+		cnt = 0;
+		n = stk->s[i].dt;
+		bits = stk->s[i].bit;
+		ft_putnbr_arr(n, bits, &cnt, base);
+		i++;
+	}
 }
 
-int main(void)
-{
-	char	*str;
+// int main(void)
+// {
+// 	char	*str;
 
-	str = ft_itoa_sizet(4294967295);
-	printf("%s",str);
-	free(str);
-	return 1;
-}
+// 	str = ft_itoa_sizet(4294967295);
+// 	printf("%s",str);
+// 	free(str);
+// 	return 1;
+// }

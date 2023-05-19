@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/19 17:29:15 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/19 23:51:42 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,41 @@ void	ft_radix_sort(t_stk *stk)
 	size_t	i;
 	size_t	j;
 	size_t	maxbit;
-	size_t	n;
+	size_t	bit;
 
 	maxbit = ft_get_max_bits(stk->size, BASE);
+	dprintf(2, "maxbit=%d\n", maxbit);
 	j = 0;
 	while (j < maxbit)
 	{
 		i = 0;
 		while (i < stk->size)
 		{
-			n = stk->stkf[stk->slit];
-			if (ft_get_bit(n, j, BASE) == 1)
+			bit = ft_get_bit(stk->stkf[stk->slit], j, BASE);
+			if (bit == 0)
+			{
 				pb(stk);
+				rb(stk);
+			}
+			else if (bit == 1)
+			{
+				pb(stk);
+			}
 			else
 				ra(stk);
 			i++;
 		}
 		while (0 < stk->slit)
 		{
-			rrb(stk);
-			pa(stk);
-			ra(stk);
+			if (stk->stkf[stk->slit - 1] == 0)
+			{
+				rrb(stk);
+				pa(stk);
+			}
+			else
+			{
+				pa(stk);
+			}
 		}
 		j++;
 	}

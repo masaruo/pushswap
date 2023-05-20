@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 12:43:54 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:18:07 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,39 +50,66 @@ void	ft_radix_sort(t_stk *stk)
 	size_t	bit;
 
 	maxbit = ft_get_max_bits(stk->size, BASE);
-	dprintf(2, "maxbit=%d\n", maxbit);
 	j = 0;
 	while (j < maxbit)
 	{
 		i = 0;
 		while (i < stk->size)
 		{
-			bit = ft_get_bit(stk->stkf[stk->slit], j, BASE);
-			if (bit == 0)
-			{
+			if ((stk->stkf[stk->slit] >> j & 1) == 0)
 				pb(stk);
-				rb(stk);
-			}
-			else if (bit == 1)
-			{
-				pb(stk);
-			}
 			else
 				ra(stk);
 			i++;
 		}
 		while (0 < stk->slit)
 		{
-			if (stk->stkf[stk->slit - 1] == 0)
-			{
-				rrb(stk);
-				pa(stk);
-			}
-			else
-			{
-				pa(stk);
-			}
+			pa(stk);
 		}
 		j++;
 	}
 }
+
+// void	ft_radix_sort(t_stk *stk)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	size_t	maxbit;
+// 	size_t	bit;
+
+// 	maxbit = ft_get_max_bits(stk->size, BASE);
+// 	j = 0;
+// 	while (j < maxbit)
+// 	{
+// 		i = 0;
+// 		while (i < stk->size)
+// 		{
+// 			bit = ft_get_bit(stk->stkf[stk->slit], j, BASE);
+// 			if (bit == 0)
+// 			{
+// 				pb(stk);
+// 				rb(stk);
+// 			}
+// 			else if (bit == 1)
+// 			{
+// 				pb(stk);
+// 			}
+// 			else
+// 				ra(stk);
+// 			i++;
+// 		}
+// 		while (0 < stk->slit)
+// 		{
+// 			if (stk->stkf[stk->slit - 1] == 0)
+// 			{
+// 				rrb(stk);
+// 				pa(stk);
+// 			}
+// 			else
+// 			{
+// 				pa(stk);
+// 			}
+// 		}
+// 		j++;
+// 	}
+// }

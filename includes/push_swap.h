@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/19 17:16:46 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:34:24 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 # include "ft_printf.h"
-# define BASE 2
+# define BASE 3
 
 typedef struct s_stk
 {

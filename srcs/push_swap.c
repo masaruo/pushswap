@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/17 14:43:10 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 17:00:22 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		ft_mk_stk(argv, &stk);
-		ft_radix_sort(&stk);
+		ft_sort_ctl(&stk);
 		free(stk.stkf);
 	}
 	else if (argc == 1)

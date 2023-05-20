@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 13:51:50 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 21:29:18 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 # include "ft_printf.h"
+# include <stdbool.h>
 # define BASE 2
 
 typedef struct s_stk
@@ -44,10 +45,12 @@ void	ft_err_exit(void);
 int		*ft_get_arr(char **argv, size_t size);
 size_t	ft_get_size(char **argv);
 int		ft_atoi_cnt(const char *str, int *j);
-void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
-int		ft_isspace_cnt(const char c);
 void	ft_qsort(int *stk, int left, int right);
 void	ft_stk_compress(t_stk *stk);
 void	ft_radix_sort(t_stk *stk);
+bool	ft_chk_sorted(t_stk *stk);
+void	ft_chk_dup(t_stk *stk);
+void	ft_sort_ctl(t_stk *stk);
+void	ft_sort_small(t_stk *stk);
 
 #endif

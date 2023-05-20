@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 14:18:07 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 21:28:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,3 +113,41 @@ void	ft_radix_sort(t_stk *stk)
 // 		j++;
 // 	}
 // }
+
+void	ft_sort_small(t_stk *stk)
+{
+	size_t	max;
+	size_t	i;
+
+	i = 0;
+	max = stk->size - 1;
+	while (1)
+	{
+		if (stk->stkf[stk->slit] == max)
+		{
+			ra(stk);
+		}
+		if (stk->stkf[stk->slit + 1] == max)
+		{
+			rra(stk);
+		}
+		if (stk->stkf[stk->slit + 2] == max)
+		{
+			sa(stk);
+		}
+		if (ft_chk_sorted(stk))
+			break ;
+	}
+}
+
+void	ft_sort_ctl(t_stk *stk)
+{
+	if (stk->size == 2)
+		sa(stk);
+	else if (stk->size < 7)
+	{
+		ft_sort_small(stk);
+	}
+	else
+		ft_radix_sort(stk);
+}

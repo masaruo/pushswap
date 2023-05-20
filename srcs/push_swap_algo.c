@@ -6,13 +6,28 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/17 15:45:41 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/19 23:51:42 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_get_max_bits(size_t n)
+static size_t	ft_get_bit(size_t n, size_t dgt, size_t base)
+{
+	size_t	bit;
+	size_t	i;
+
+	i = 0;
+	bit = n;
+	while (i < dgt)
+	{
+		bit /= base;
+		i++;
+	}
+	return (bit % base);
+}
+
+static size_t	ft_get_max_bits(size_t n, size_t base)
 {
 	size_t	cnt;
 
@@ -20,7 +35,7 @@ size_t	ft_get_max_bits(size_t n)
 	while (1)
 	{
 		cnt++;
-		n = n / 2;
+		n = n / base;
 		if (n == 0)
 			break ;
 	}
@@ -32,30 +47,41 @@ void	ft_radix_sort(t_stk *stk)
 	size_t	i;
 	size_t	j;
 	size_t	maxbit;
+	size_t	bit;
 
-	maxbit = ft_get_max_bits(stk->size);
+	maxbit = ft_get_max_bits(stk->size, BASE);
+	dprintf(2, "maxbit=%d\n", maxbit);
 	j = 0;
 	while (j < maxbit)
 	{
 		i = 0;
 		while (i < stk->size)
 		{
-			if ((stk->stkf[stk->slit] >> j & 1) == 0)
+			bit = ft_get_bit(stk->stkf[stk->slit], j, BASE);
+			if (bit == 0)
 			{
 				pb(stk);
-				ft_printf("pb\n");
+				rb(stk);
+			}
+			else if (bit == 1)
+			{
+				pb(stk);
 			}
 			else
-			{
 				ra(stk);
-				ft_printf("ra\n");
-			}
 			i++;
 		}
 		while (0 < stk->slit)
 		{
-			pa(stk);
-			ft_printf("pa\n");
+			if (stk->stkf[stk->slit - 1] == 0)
+			{
+				rrb(stk);
+				pa(stk);
+			}
+			else
+			{
+				pa(stk);
+			}
 		}
 		j++;
 	}

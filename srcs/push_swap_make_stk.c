@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/18 13:32:44 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:13:46 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,8 +162,8 @@ void	ft_stk_compress(t_stk *stk)
 		{
 			if (stk->stk_fr[j] == stk->stk_sorted_fr[i])
 			{
-				stk->s[j].dt = i;
-				// stk->stkf[j] = i;
+				// stk->s[j].dt = i;
+				stk->stkf[j] = i;
 				break ;
 			}
 			j++;

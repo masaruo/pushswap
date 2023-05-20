@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/18 13:13:43 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:13:22 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_mk_stk(char **argv, t_stk *stk)
 	stk->stk_fr = ft_get_arr(argv, stk->size);
 	stk->stk_sorted_fr = malloc(sizeof(int) * stk->size);//todo error
 	stk->stkf = malloc(sizeof(size_t) * stk->size);//todo error
-	stk->s = ft_xcalloc(stk->size, sizeof(t_elm));
+	// stk->s = ft_xcalloc(stk->size, sizeof(t_elm));
 	ft_memmove(stk->stk_sorted_fr, stk->stk_fr, sizeof(int) * stk->size);
 	ft_qsort(stk->stk_sorted_fr, 0, stk->size - 1);
 	ft_stk_compress(stk);

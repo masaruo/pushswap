@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 10:37:15 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/20 12:43:54 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static size_t	ft_get_max_bits(size_t n, size_t base)
 		if (n == 0)
 			break ;
 	}
-	return (cnt + 1);
+	return (cnt);
 }
 
 void	ft_radix_sort(t_stk *stk)

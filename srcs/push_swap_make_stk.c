@@ -6,22 +6,23 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 10:13:46 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 14:47:53 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isspace_cnt(const char c)
+static int	ft_isspace_cnt(const char c)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r'
-		|| c == '\t' || c == '\v')
+	if (c == ' ')
+	// if (c == ' ' || c == '\f' || c == '\n' || c == '\r'
+	// 	|| c == '\t' || c == '\v')
 		return (1);
 	else
 		return (0);
 }
 
-void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
+static void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 {
 	while (ft_isspace_cnt(s[*j]))
 		*j = *j + 1;
@@ -29,6 +30,8 @@ void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 		*is_minus = -1;
 	if (s[*j] == '-' || s[*j] == '+')
 		*j = *j + 1;
+	if (!ft_isdigit(s[*j]))
+		ft_err_exit();
 	return ;
 }
 
@@ -37,7 +40,7 @@ void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 int	ft_atoi_cnt(const char *str, int *j)
 {
 	int			is_minus;
-	long		num;
+	int			num;
 	const char	*s;
 
 	is_minus = 0;
@@ -45,13 +48,15 @@ int	ft_atoi_cnt(const char *str, int *j)
 	num = 0;
 	s = str;
 	while (s[*j])
-	{
-		if (num > LONG_MAX / 10)
+	{	
+		if (!ft_isdigit(s[*j]))
+			ft_err_exit();
+		if (num > INT_MAX / 10)
 			ft_err_exit();
 		num = num * 10;
-		if (!is_minus && num > LONG_MAX - (s[*j] - '0'))
+		if (!is_minus && num > INT_MAX - (s[*j] - '0'))
 			ft_err_exit();
-		if (is_minus && num - 1 > LONG_MAX - (s[*j] - '0'))
+		if (is_minus && num - 1 > INT_MAX - (s[*j] - '0'))
 			ft_err_exit();
 		num = num + (s[*j] - '0');
 		*j = *j + 1;
@@ -153,24 +158,24 @@ void	ft_stk_compress(t_stk *stk)
 	size_t	i;
 	size_t	j;
 
+	ft_chk_dup(stk);
+	if (ft_chk_sorted(stk))
+		exit(0);
 	i = 0;
-	//! dup check needed
 	while (i < stk->size)
 	{
 		j = 0;
 		while (j < stk->size)
 		{
-			if (stk->stk_fr[j] == stk->stk_sorted_fr[i])
+			if (stk->init_stk_fr[j] == stk->sorted_stk_fr[i])
 			{
-				// stk->s[j].dt = i;
-				stk->stkf[j] = i;
+				stk->stk_fr[j] = i;
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-	ft_itoa_sizet(stk);
-	free(stk->stk_sorted_fr);
-	free(stk->stk_fr);
+	free(stk->sorted_stk_fr);
+	free(stk->init_stk_fr);
 }

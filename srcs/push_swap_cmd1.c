@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:42 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/19 17:23:28 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 10:38:05 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_stk *stk)
 {
 	if (stk->slit <= stk->size - 2)
 	{
-		ft_swap_sizet(&stk->stkf[stk->slit], &stk->stkf[stk->slit + 1]);
+		ft_swap_sizet(&stk->stk_fr[stk->slit], &stk->stk_fr[stk->slit + 1]);
 		ft_printf("sa\n");
 	}
 }
@@ -25,7 +25,7 @@ void	sb(t_stk *stk)
 {
 	if (2 <= stk->slit)
 	{
-		ft_swap_sizet(&stk->stkf[stk->slit - 1], &stk->stkf[stk->slit - 2]);
+		ft_swap_sizet(&stk->stk_fr[stk->slit - 1], &stk->stk_fr[stk->slit - 2]);
 		ft_printf("sb\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 19:35:09 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 20:27:05 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void	ft_sort_triple(t_stk *stk);
 void	*ft_xcalloc(size_t count, size_t size, size_t flg, t_stk *stk);
 size_t	ft_get_minmax(t_stk *stk, size_t *max, size_t *min);
 char	**ft_xsplit(const char *s, char c, int *arr);
+int		ft_atoi_cnt(const char *str, int *j);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 19:43:55 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 20:28:00 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	*ft_get_arr(char **argv, size_t size, t_stk *stk)
 		j = 0;
 		while (splt_fr[j])
 		{
-			stack[n] = ft_atoi(splt_fr[j]);
+			stack[n] = ft_atoi_cnt(splt_fr[j]);
 			free(splt_fr[j]);
 			j++;
 			n++;

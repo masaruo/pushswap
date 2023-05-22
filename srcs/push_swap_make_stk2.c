@@ -6,13 +6,13 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 20:25:13 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 20:29:43 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
+static void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 {
 	*is_minus = 0;
 	while (ft_isspace_cnt(s[*j]))
@@ -26,7 +26,7 @@ void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 	return ;
 }
 
-int	ft_isspace_cnt(const char c)
+static int	ft_isspace_cnt(const char c)
 {
 	if (c == ' ')
 		return (1);
@@ -34,13 +34,13 @@ int	ft_isspace_cnt(const char c)
 		return (0);
 }
 
-int	ft_atoi_cnt(const char *str, int *j)
+int	ft_atoi_cnt(const char *str)
 {
 	int			is_minus;
 	int			num;
 	const char	*s;
 
-	ft_prefix_cnt(str, &is_minus, j);
+	ft_prefix_cnt(str, &is_minus);
 	num = 0;
 	s = str;
 	while (s[*j])

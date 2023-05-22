@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 18:08:28 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 18:25:09 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ size_t	ft_get_size(char **argv, t_stk *stk)
 	char	*s;
 	int		i;
 	int		j;
-	int		n;
+	int		size;
 
 	i = 1;
-	n = 0;
+	size = 0;
 	while (argv[i])
 	{
 		j = 0;
@@ -60,7 +60,7 @@ size_t	ft_get_size(char **argv, t_stk *stk)
 		while (1)
 		{
 			num = ft_atoi_cnt(s, &j);
-			n++;
+			size++;
 			if (!s[j])
 				break ;
 			j++;
@@ -68,7 +68,7 @@ size_t	ft_get_size(char **argv, t_stk *stk)
 		free(s);
 		i++;
 	}
-	return (n);
+	return (size);
 }
 
 int	*ft_get_arr(char **argv, size_t size, t_stk *stk)

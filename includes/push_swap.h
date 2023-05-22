@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 18:08:44 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 18:10:41 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ int		ft_isspace_cnt(const char c);
 void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
 size_t	ft_get_minmax(t_stk *stk, size_t *max, size_t *min);
 char	*ft_xstrtrim(const char *s, const char *set, bool to_free, t_stk *stk);
+
 #endif

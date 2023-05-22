@@ -6,34 +6,11 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 14:47:53 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 18:08:28 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_isspace_cnt(const char c)
-{
-	if (c == ' ')
-	// if (c == ' ' || c == '\f' || c == '\n' || c == '\r'
-	// 	|| c == '\t' || c == '\v')
-		return (1);
-	else
-		return (0);
-}
-
-static void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
-{
-	while (ft_isspace_cnt(s[*j]))
-		*j = *j + 1;
-	if (s[*j] == '-')
-		*is_minus = -1;
-	if (s[*j] == '-' || s[*j] == '+')
-		*j = *j + 1;
-	if (!ft_isdigit(s[*j]))
-		ft_err_exit();
-	return ;
-}
 
 // The atoi() function converts the initial portion of 
 // the string pointed to by str to int representation.
@@ -43,7 +20,6 @@ int	ft_atoi_cnt(const char *str, int *j)
 	int			num;
 	const char	*s;
 
-	is_minus = 0;
 	ft_prefix_cnt(str, &is_minus, j);
 	num = 0;
 	s = str;
@@ -67,7 +43,7 @@ int	ft_atoi_cnt(const char *str, int *j)
 		return ((int)num);
 }
 
-size_t	ft_get_size(char **argv)
+size_t	ft_get_size(char **argv, t_stk *stk)
 {
 	int		num;
 	char	*s;
@@ -80,7 +56,7 @@ size_t	ft_get_size(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		s = ft_strtrim(argv[i], " , \t");
+		s = ft_xstrtrim(argv[i], " , \t", false, stk);
 		while (1)
 		{
 			num = ft_atoi_cnt(s, &j);
@@ -95,9 +71,9 @@ size_t	ft_get_size(char **argv)
 	return (n);
 }
 
-int	*ft_get_arr(char **argv, size_t size)
+int	*ft_get_arr(char **argv, size_t size, t_stk *stk)
 {
-	int		*stk;
+	int		*stack;
 	char	*s;
 	int		i;
 	int		j;
@@ -105,16 +81,14 @@ int	*ft_get_arr(char **argv, size_t size)
 
 	i = 1;
 	n = 0;
-	stk = malloc(sizeof(int) * (size));
-	if (stk == NULL)
-		ft_err_exit();
+	stack = ft_xcalloc(size, sizeof(int), 1, stk);
 	while (argv[i])
 	{
 		j = 0;
-		s = ft_strtrim(argv[i], " , \t");
+		s = ft_xstrtrim(argv[i], " , \t", true, stk);
 		while (1)
 		{
-			stk[n] = ft_atoi_cnt(s, &j);
+			stack[n] = ft_atoi_cnt(s, &j);
 			n++;
 			if (!s[j])
 				break ;
@@ -123,7 +97,7 @@ int	*ft_get_arr(char **argv, size_t size)
 		free(s);
 		i++;
 	}
-	return (stk);
+	return (stack);
 }
 
 void	ft_qsort(int *stk, int left, int right)
@@ -176,6 +150,4 @@ void	ft_stk_compress(t_stk *stk)
 		}
 		i++;
 	}
-	free(stk->sorted_stk_fr);
-	free(stk->init_stk_fr);
 }

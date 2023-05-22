@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   push_swap_make_stk2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 06:40:00 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 16:45:24 by mogawa           ###   ########.fr       */
+/*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
+/*   Updated: 2023/05/22 16:34:26 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-// 文字ｃがアルファベットか数値なら１を返し、それ以外は０を返す
-int	ft_isalnum(int c)
+void	ft_prefix_cnt(const char *s, int *is_minus, int *j)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	*is_minus = 0;
+	while (ft_isspace_cnt(s[*j]))
+		*j = *j + 1;
+	if (s[*j] == '-')
+		*is_minus = -1;
+	if (s[*j] == '-' || s[*j] == '+')
+		*j = *j + 1;
+	if (!ft_isdigit(s[*j]))
+		ft_err_exit();
+	return ;
+}
+
+int	ft_isspace_cnt(const char c)
+{
+	if (c == ' ')
 		return (1);
 	else
 		return (0);

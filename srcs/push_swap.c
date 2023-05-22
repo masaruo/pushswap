@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 17:00:22 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 10:38:10 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	*ft_mk_stk(char **argv, t_stk *stk)
 {
 	stk->size = ft_get_size(argv);
-	stk->stk_fr = ft_get_arr(argv, stk->size);
-	stk->stk_sorted_fr = malloc(sizeof(int) * stk->size);//todo error
-	stk->stkf = malloc(sizeof(size_t) * stk->size);//todo error
-	ft_memmove(stk->stk_sorted_fr, stk->stk_fr, sizeof(int) * stk->size);
-	ft_qsort(stk->stk_sorted_fr, 0, stk->size - 1);
+	stk->init_stk_fr = ft_get_arr(argv, stk->size);
+	stk->sorted_stk_fr = malloc(sizeof(int) * stk->size);//todo error
+	stk->stk_fr = malloc(sizeof(size_t) * stk->size);//todo error
+	ft_memmove(stk->sorted_stk_fr, stk->init_stk_fr, sizeof(int) * stk->size);
+	ft_qsort(stk->sorted_stk_fr, 0, stk->size - 1);
 	ft_stk_compress(stk);
 	stk->slit = 0;
 }
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	{
 		ft_mk_stk(argv, &stk);
 		ft_sort_ctl(&stk);
-		free(stk.stkf);
+		free(stk.stk_fr);
 	}
 	else if (argc == 1)
 		return (0);

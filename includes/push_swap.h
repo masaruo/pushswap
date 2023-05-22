@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/20 21:29:18 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 10:38:04 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 typedef struct s_stk
 {
 	size_t	size;
-	int		*stk_fr;
-	int		*stk_sorted_fr;
-	size_t	*stkf;
+	int		*init_stk_fr;
+	int		*sorted_stk_fr;
+	size_t	*stk_fr;
 	size_t	slit;
 }	t_stk;
 

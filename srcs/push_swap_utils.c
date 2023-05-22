@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:33:08 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 18:06:07 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 19:37:25 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,6 @@ void	*ft_xcalloc(size_t count, size_t size, size_t flg, t_stk *stk)
 		ft_err_exit();
 	}
 	return (heap);
-}
-
-char	*ft_xstrtrim(const char *s, const char *set, bool to_free, t_stk *stk)
-{
-	char	*res;
-
-	res = ft_strtrim(s, set);
-	if (!res)
-	{
-		if (to_free)
-			free(stk->init_stk_fr);
-		ft_err_exit();
-	}
-	return (res);
 }
 
 void	ft_err_exit(void)
@@ -83,4 +69,17 @@ bool	ft_chk_sorted(t_stk *stk)
 		return (true);
 	else
 		return (false);
+}
+
+char	**ft_xsplit(const char *s, char c, int *arr)
+{
+	char	**res;
+
+	res = ft_split(s, c);
+	if (!res)
+	{
+		free(arr);
+		ft_err_exit();
+	}
+	return (res);
 }

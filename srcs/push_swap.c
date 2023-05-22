@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:20:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 18:06:25 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 19:41:30 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_mk_stk(char **argv, t_stk *stk)
 {
-	stk->size = ft_get_size(argv, stk);
+	stk->size = ft_get_size(argv);
 	stk->init_stk_fr = ft_get_arr(argv, stk->size, stk);
 	stk->sorted_stk_fr = ft_xcalloc(stk->size, sizeof(int), 2, stk);
 	stk->stk_fr = ft_xcalloc(stk->size, sizeof(size_t), 3, stk);

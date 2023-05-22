@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 16:34:26 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 20:23:24 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,33 @@ int	ft_isspace_cnt(const char c)
 		return (1);
 	else
 		return (0);
+}
+
+int	ft_atoi_cnt(const char *str, int *j)
+{
+	int			is_minus;
+	int			num;
+	const char	*s;
+
+	ft_prefix_cnt(str, &is_minus, j);
+	num = 0;
+	s = str;
+	while (s[*j])
+	{	
+		if (!ft_isdigit(s[*j]))
+			ft_err_exit();
+		if (num > INT_MAX / 10)
+			ft_err_exit();
+		num = num * 10;
+		if (!is_minus && num > INT_MAX - (s[*j] - '0'))
+			ft_err_exit();
+		if (is_minus && num - 1 > INT_MAX - (s[*j] - '0'))
+			ft_err_exit();
+		num = num + (s[*j] - '0');
+		*j = *j + 1;
+	}
+	if (is_minus)
+		return ((int)(num * -1));
+	else
+		return ((int)num);
 }

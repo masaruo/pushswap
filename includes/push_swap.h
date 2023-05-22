@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 11:18:39 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 18:10:41 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 19:35:09 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ void	rr(t_stk *stk);
 void	rrr(t_stk *stk);
 void	ft_err_exit(void);
 int		*ft_get_arr(char **argv, size_t size, t_stk *stk);
-size_t	ft_get_size(char **argv, t_stk *stk);
-int		ft_atoi_cnt(const char *str, int *j);
+size_t	ft_get_size(char **argv);
 void	ft_qsort(int *stk, int left, int right);
 void	ft_stk_compress(t_stk *stk);
 void	ft_radix_sort(t_stk *stk);
@@ -53,9 +52,7 @@ void	ft_chk_dup(t_stk *stk);
 void	ft_sort_ctl(t_stk *stk);
 void	ft_sort_triple(t_stk *stk);
 void	*ft_xcalloc(size_t count, size_t size, size_t flg, t_stk *stk);
-int		ft_isspace_cnt(const char c);
-void	ft_prefix_cnt(const char *s, int *is_minus, int *j);
 size_t	ft_get_minmax(t_stk *stk, size_t *max, size_t *min);
-char	*ft_xstrtrim(const char *s, const char *set, bool to_free, t_stk *stk);
+char	**ft_xsplit(const char *s, char c, int *arr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 20:28:00 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 23:48:08 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	ft_get_size(char **argv)
 
 int	*ft_get_arr(char **argv, size_t size, t_stk *stk)
 {
-	int		*stack;
+	int		*arr;
 	size_t	i;
 	size_t	j;
 	size_t	n;
@@ -49,14 +49,14 @@ int	*ft_get_arr(char **argv, size_t size, t_stk *stk)
 
 	i = 1;
 	n = 0;
-	stack = ft_xcalloc(size, sizeof(int), 1, stk);
+	arr = ft_xcalloc(size, sizeof(int), 1, stk);
 	while (argv[i])
 	{
-		splt_fr = ft_xsplit(argv[i], ' ', stack);
+		splt_fr = ft_xsplit(argv[i], ' ', arr);
 		j = 0;
 		while (splt_fr[j])
 		{
-			stack[n] = ft_atoi_cnt(splt_fr[j]);
+			arr[n] = ft_xatoi(splt_fr[j]);
 			free(splt_fr[j]);
 			j++;
 			n++;
@@ -64,7 +64,7 @@ int	*ft_get_arr(char **argv, size_t size, t_stk *stk)
 		free(splt_fr);
 		i++;
 	}
-	return (stack);
+	return (arr);
 }
 
 void	ft_qsort(int *stk, int left, int right)

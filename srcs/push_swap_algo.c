@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:22:31 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 17:36:35 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 23:11:17 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ static bool	ft_is_smlsorted(t_stk *stk)
 {
 	size_t	max;
 	size_t	min;
-	size_t	minloc;
 
-	minloc = ft_get_minmax(stk, &max, &min);
+	ft_get_minmax(stk, &max, &min);
 	if (stk->stk_fr[stk->slit] == min && stk->stk_fr[stk->slit + 2] == max)
 		return (true);
 	else
@@ -52,9 +51,8 @@ void	ft_sort_triple(t_stk *stk)
 {
 	size_t	max;
 	size_t	min;
-	size_t	minloc;
 
-	minloc = ft_get_minmax(stk, &max, &min);
+	ft_get_minmax(stk, &max, &min);
 	while (1)
 	{
 		if (ft_is_smlsorted(stk))

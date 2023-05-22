@@ -6,7 +6,7 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:33:08 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 19:37:25 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/22 23:50:32 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ char	**ft_xsplit(const char *s, char c, int *arr)
 {
 	char	**res;
 
+	if (!s || !*s)
+	{
+		free(arr);
+		ft_err_exit();
+	}
 	res = ft_split(s, c);
 	if (!res)
 	{

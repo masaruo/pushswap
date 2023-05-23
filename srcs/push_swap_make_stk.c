@@ -6,11 +6,26 @@
 /*   By: mogawa <mogawa@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:51:13 by mogawa            #+#    #+#             */
-/*   Updated: 2023/05/22 23:48:08 by mogawa           ###   ########.fr       */
+/*   Updated: 2023/05/23 21:21:57 by mogawa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static char	**ft_xstr_trim_split(const char *s, const char *set)
+{
+	char	*trimed_fr;
+	char	**splted_fr;
+
+	trimed_fr = ft_strtrim(s, set);
+	if (!*trimed_fr)
+		ft_err_exit();
+	splted_fr = ft_split(trimed_fr, ' ');
+	free(trimed_fr);
+	if (!splted_fr)
+		ft_err_exit();
+	return (splted_fr);
+}
 
 size_t	ft_get_size(char **argv)
 {
@@ -23,9 +38,7 @@ size_t	ft_get_size(char **argv)
 	size = 0;
 	while (argv[i])
 	{
-		splt_fr = ft_split(argv[i], ' ');
-		if (!splt_fr)
-			ft_err_exit();
+		splt_fr = ft_xstr_trim_split(argv[i], " ");
 		j = 0;
 		while (splt_fr[j])
 		{
